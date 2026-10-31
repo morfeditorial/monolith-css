@@ -1,0 +1,112 @@
+// =============================================================================
+// UTILITY GENERATOR
+// Turns a config map into base, state (hover:) and responsive (md:) classes.
+//
+// A family is a map of  id -> (
+//   'properties': (css-property ...),   // one or several properties
+//   'prefix':     'bg',                 // class prefix ('' for none)
+//   'values':     (key: value),         // key 'DEFAULT' emits the bare prefix
+//   'responsive': true,
+//   'states':     ('hover', 'focus')    // subset of $state-variants
+// )
+// Keys starting with "-" produce negative classes (-m-4).
+// =============================================================================
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+
+@function class-name($prefix, $key) {
+  $key: '#{$key}';
+
+  @if string.slice($key, 1, 1) == '-' {
+    @return '-#{$prefix}-#{string.slice($key, 2)}';
+  }
+
+  @if $key == 'DEFAULT' {
+    @return $prefix;
+  }
+
+  @if $prefix == '' {
+    @return $key;
+  }
+
+  @return '#{$prefix}-#{$key}';
+}
+
+@mixin declarations($props, $value) {
+  $zip: list.length($props) > 1 and meta.type-of($value) == 'list' and list.length($value) == list.length($props);
+
+  @for $i from 1 through list.length($props) {
+    $item: $value;
+
+    @if $zip {
+      $item: list.nth($value, $i);
+    }
+
+    @if $enable-important {
+      #{list.nth($props, $i)}: $item !important;
+    } @else {
+      #{list.nth($props, $i)}: $item;
+    }
+  }
+}
+
+@mixin generate($config) {
+  // Pass 1: base classes
+  @each $id, $def in $config {
+    $props: map.get($def, 'properties');
+    $prefix: map.get($def, 'prefix');
+
+    @each $key, $value in map.get($def, 'values') {
+      .#{escape-ident(class-name($prefix, $key))} {
+        @include declarations($props, $value);
+      }
+    }
+  }
+
+  // Pass 2: state variants (hover:, focus:, active:)
+  @if $enable-states {
+    @each $id, $def in $config {
+      $props: map.get($def, 'properties');
+      $prefix: map.get($def, 'prefix');
+      $states: map.get($def, 'states');
+
+      @if $states {
+        @each $state in $state-variants {
+          @if list.index($states, $state) {
+            @each $key, $value in map.get($def, 'values') {
+              .#{$state}\:#{escape-ident(class-name($prefix, $key))}:#{$state} {
+                @include declarations($props, $value);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Pass 3: responsive variants (sm:, md:, ...)
+  @if $enable-responsive {
+    @each $bp, $min in $breakpoints {
+      @media (min-width: $min) {
+        @each $id, $def in $config {
+          @if map.get($def, 'responsive') {
+            $props: map.get($def, 'properties');
+            $prefix: map.get($def, 'prefix');
+
+            @each $key, $value in map.get($def, 'values') {
+              .#{escape-breakpoint($bp)}\:#{escape-ident(class-name($prefix, $key))} {
+                @include declarations($props, $value);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
