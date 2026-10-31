@@ -1,0 +1,16 @@
+/*!
+ * Monolith CSS v0.1.0
+ * Licensed under CSSM-ULv2
+ */
+
+// Configuration is forwarded first so that
+//   @use 'monolith-css' with ($enable-dark-mode: false, $theme: (...));
+// reaches every module that reads these variables.
+@forward 'abstracts/config';
+@forward 'abstracts/tokens';
+
+// Base layer
+@use 'base/root';
+@use 'base/themes';
+@use 'base/reset';
+@use 'base/typography';
