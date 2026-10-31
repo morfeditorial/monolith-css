@@ -1,0 +1,128 @@
+// =============================================================================
+// TYPOGRAPHY UTILITIES
+// =============================================================================
+
+@use 'sass:map';
+@use '../abstracts/tokens' as *;
+
+$utilities: (
+  'font-family': (
+    'properties': (font-family),
+    'prefix': 'font',
+    'values': (
+      'body': var(--font-body),
+      'sans': var(--font-body),
+      'head': var(--font-head),
+      'mono': var(--font-mono),
+      'serif': $font-family-serif,
+      'inter': ('Inter', sans-serif),
+      'unbounded': ('Unbounded', sans-serif)
+    ),
+    'responsive': false
+  ),
+  'font-size': (
+    'properties': (font-size line-height),
+    'prefix': 'text',
+    'values': $font-sizes,
+    'responsive': true
+  ),
+  'font-weight': (
+    'properties': (font-weight),
+    'prefix': 'font',
+    'values': $font-weights,
+    'responsive': false
+  ),
+  'line-height': (
+    'properties': (line-height),
+    'prefix': 'leading',
+    'values': $line-heights,
+    'responsive': false
+  ),
+  'letter-spacing': (
+    'properties': (letter-spacing),
+    'prefix': 'tracking',
+    'values': $letter-spacing,
+    'responsive': false
+  ),
+  'text-align': (
+    'properties': (text-align),
+    'prefix': 'text',
+    'values': (
+      'left': left,
+      'center': center,
+      'right': right,
+      'justify': justify
+    ),
+    'responsive': true
+  ),
+  'text-transform': (
+    'properties': (text-transform),
+    'prefix': '',
+    'values': (
+      'uppercase': uppercase,
+      'lowercase': lowercase,
+      'capitalize': capitalize,
+      'normal-case': none
+    ),
+    'responsive': false
+  ),
+  'text-decoration': (
+    'properties': (text-decoration),
+    'prefix': '',
+    'values': (
+      'underline': underline,
+      'line-through': line-through,
+      'no-underline': none
+    ),
+    'responsive': false,
+    'states': ('hover', 'focus')
+  ),
+  'underline-offset': (
+    'properties': (text-underline-offset),
+    'prefix': 'underline-offset',
+    'values': ('1': 1px, '2': 2px, '3': 3px, '4': 4px),
+    'responsive': false
+  ),
+  'font-style': (
+    'properties': (font-style),
+    'prefix': '',
+    'values': ('italic': italic, 'not-italic': normal),
+    'responsive': false
+  ),
+  'whitespace': (
+    'properties': (white-space),
+    'prefix': 'whitespace',
+    'values': (
+      'normal': normal,
+      'nowrap': nowrap,
+      'pre': pre,
+      'pre-wrap': pre-wrap,
+      'pre-line': pre-line
+    ),
+    'responsive': false
+  ),
+  'word-break': (
+    'properties': (overflow-wrap),
+    'prefix': 'break',
+    'values': ('normal': normal, 'words': break-word, 'anywhere': anywhere),
+    'responsive': false
+  ),
+  'numeric': (
+    'properties': (font-variant-numeric),
+    'prefix': '',
+    'values': ('tabular-nums': tabular-nums, 'normal-nums': normal),
+    'responsive': false
+  ),
+  'vertical-align': (
+    'properties': (vertical-align),
+    'prefix': 'align',
+    'values': ('baseline': baseline, 'top': top, 'middle': middle, 'bottom': bottom),
+    'responsive': false
+  ),
+  'list-style': (
+    'properties': (list-style),
+    'prefix': 'list',
+    'values': ('none': none, 'disc': disc, 'decimal': decimal),
+    'responsive': false
+  )
+);

@@ -12,6 +12,7 @@
 @use 'sizing';
 @use 'colors';
 @use 'borders';
+@use 'typography';
 
 $all: ();
 $all: map.merge($all, layout.$utilities);
@@ -20,5 +21,6 @@ $all: map.merge($all, spacing.$utilities);
 $all: map.merge($all, sizing.$utilities);
 $all: map.merge($all, colors.$utilities);
 $all: map.merge($all, borders.$utilities);
+$all: map.merge($all, typography.$utilities);
 
 @include generate($all);
