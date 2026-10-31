@@ -1,0 +1,43 @@
+// =============================================================================
+// ROOT
+// Theme tokens exposed as CSS custom properties
+// =============================================================================
+
+@use 'sass:map';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+
+@if $import-fonts {
+  @import url('#{$google-fonts-url}');
+}
+
+:root {
+  @each $key, $value in $theme {
+    @if $enable-telegram-theme and map.has-key($telegram-theme, $key) {
+      --#{$key}: var(--tg-theme-#{map.get($telegram-theme, $key)}, #{$value});
+    } @else {
+      --#{$key}: #{$value};
+    }
+  }
+
+  --radius: #{$radius-default};
+  --border-w: #{$border-width-default};
+  --maxw: #{map.get($max-widths, '6xl')};
+
+  --font-body: #{$font-family-body};
+  --font-head: #{$font-family-head};
+  --font-mono: #{$font-family-mono};
+  --font-size-base: #{$base-font-size};
+
+  @each $key, $offset in $shadow-offsets {
+    --shadow-#{$key}: #{$offset} #{$offset} 0 var(--border);
+  }
+
+  // Aliases kept for readability in component code
+  --shadow-brutal: var(--shadow-base);
+  --shadow-brutal-sm: var(--shadow-sm);
+  --shadow-btn: var(--shadow-md);
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
