@@ -7,8 +7,10 @@
 @use 'sass:map';
 @use 'generator' as *;
 @use 'layout';
+@use 'flex-grid';
 
 $all: ();
 $all: map.merge($all, layout.$utilities);
+$all: map.merge($all, flex-grid.$utilities);
 
 @include generate($all);

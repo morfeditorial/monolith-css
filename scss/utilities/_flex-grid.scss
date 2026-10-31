@@ -1,0 +1,171 @@
+// =============================================================================
+// FLEX & GRID UTILITIES
+// =============================================================================
+
+@use 'sass:string';
+@use '../abstracts/tokens' as *;
+
+$columns: (
+  '1': repeat(1, minmax(0, 1fr)),
+  '2': repeat(2, minmax(0, 1fr)),
+  '3': repeat(3, minmax(0, 1fr)),
+  '4': repeat(4, minmax(0, 1fr)),
+  '5': repeat(5, minmax(0, 1fr)),
+  '6': repeat(6, minmax(0, 1fr)),
+  '12': repeat(12, minmax(0, 1fr)),
+  'none': none,
+  '2-1': minmax(0, 2fr) minmax(0, 1fr),
+  '1-2': minmax(0, 1fr) minmax(0, 2fr),
+  '3-2': minmax(0, 3fr) minmax(0, 2fr),
+  '3-1': minmax(0, 3fr) minmax(0, 1fr),
+  '4-1': minmax(0, 4fr) minmax(0, 1fr),
+  'main': minmax(0, 2fr) minmax(260px, 1fr),
+  'main-lg': minmax(0, 4fr) minmax(320px, 2fr),
+  'auto-fit': repeat(auto-fit, minmax(220px, 1fr)),
+  'auto-fill': repeat(auto-fill, minmax(220px, 1fr))
+);
+
+$utilities: (
+  'flex-direction': (
+    'properties': (flex-direction),
+    'prefix': 'flex',
+    'values': (
+      'row': row,
+      'row-reverse': row-reverse,
+      'col': column,
+      'col-reverse': column-reverse
+    ),
+    'responsive': true
+  ),
+  'flex-wrap': (
+    'properties': (flex-wrap),
+    'prefix': 'flex',
+    'values': (
+      'wrap': wrap,
+      'wrap-reverse': wrap-reverse,
+      'nowrap': nowrap
+    ),
+    'responsive': true
+  ),
+  'flex': (
+    'properties': (flex),
+    'prefix': 'flex',
+    'values': (
+      '1': 1 1 0%,
+      'auto': 1 1 auto,
+      'initial': 0 1 auto,
+      'none': none
+    ),
+    'responsive': true
+  ),
+  'flex-grow': (
+    'properties': (flex-grow),
+    'prefix': 'grow',
+    'values': ('DEFAULT': 1, '0': 0),
+    'responsive': true
+  ),
+  'flex-shrink': (
+    'properties': (flex-shrink),
+    'prefix': 'shrink',
+    'values': ('DEFAULT': 1, '0': 0),
+    'responsive': true
+  ),
+  'order': (
+    'properties': (order),
+    'prefix': 'order',
+    'values': ('first': -9999, 'last': 9999, 'none': 0, '1': 1, '2': 2, '3': 3),
+    'responsive': true
+  ),
+  'justify-content': (
+    'properties': (justify-content),
+    'prefix': 'justify',
+    'values': (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'between': space-between,
+      'around': space-around,
+      'evenly': space-evenly
+    ),
+    'responsive': true
+  ),
+  'align-items': (
+    'properties': (align-items),
+    'prefix': 'items',
+    'values': (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'baseline': baseline,
+      'stretch': stretch
+    ),
+    'responsive': true
+  ),
+  'align-content': (
+    'properties': (align-content),
+    'prefix': 'content',
+    'values': (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'between': space-between,
+      'around': space-around
+    ),
+    'responsive': false
+  ),
+  'align-self': (
+    'properties': (align-self),
+    'prefix': 'self',
+    'values': (
+      'auto': auto,
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'stretch': stretch
+    ),
+    'responsive': true
+  ),
+  'place-items': (
+    'properties': (place-items),
+    'prefix': 'place-items',
+    'values': ('center': center, 'start': start, 'end': end),
+    'responsive': false
+  ),
+  'grid-template-columns': (
+    'properties': (grid-template-columns),
+    'prefix': 'grid-cols',
+    'values': $columns,
+    'responsive': true
+  ),
+  'grid-column': (
+    'properties': (grid-column),
+    'prefix': 'col',
+    'values': (
+      'auto': auto,
+      'span-1': string.unquote('span 1 / span 1'),
+      'span-2': string.unquote('span 2 / span 2'),
+      'span-3': string.unquote('span 3 / span 3'),
+      'span-4': string.unquote('span 4 / span 4'),
+      'span-full': string.unquote('1 / -1')
+    ),
+    'responsive': true
+  ),
+  'gap': (
+    'properties': (gap),
+    'prefix': 'gap',
+    'values': $spacing,
+    'responsive': true
+  ),
+  'gap-x': (
+    'properties': (column-gap),
+    'prefix': 'gap-x',
+    'values': $spacing,
+    'responsive': true
+  ),
+  'gap-y': (
+    'properties': (row-gap),
+    'prefix': 'gap-y',
+    'values': $spacing,
+    'responsive': true
+  )
+);
