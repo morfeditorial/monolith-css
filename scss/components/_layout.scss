@@ -1,0 +1,240 @@
+// =============================================================================
+// LAYOUT
+// app shell, main, container, sections, page titles, column grids, stack
+// =============================================================================
+
+@use 'sass:map';
+@use '../abstracts/tokens' as *;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+// Reserve room for a fixed .bottom-nav
+.main--nav {
+  padding-bottom: calc(100px + var(--safe-bottom));
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 map.get($page-gutter, 'sm');
+
+  @media (min-width: 768px) {
+    padding: 0 map.get($page-gutter, 'md');
+  }
+
+  @media (min-width: 1200px) {
+    padding: 0 map.get($page-gutter, 'lg');
+  }
+}
+
+.page-title {
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: var(--border-w) solid var(--border);
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: var(--border-w) solid var(--border);
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: var(--border-w) solid var(--border);
+
+  .page-title {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}
+
+.page-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+// Full-width band with a heavy bottom rule
+.section {
+  position: relative;
+  padding: 1.75rem 0 2rem;
+  border-bottom: 4px solid var(--border);
+
+  &--thin {
+    border-bottom-width: var(--border-w);
+  }
+
+  &--flush {
+    border-bottom: none;
+  }
+}
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  margin-bottom: 1.1rem;
+}
+
+.section__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  font-size: clamp(1.5rem, 5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+
+  &--compact {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+}
+
+.section__description {
+  max-width: 32rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+// Column grids that collapse on small screens
+.cols {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cols-2,
+.cols-3,
+.cols-4 {
+  @extend .cols;
+}
+
+.cols-2 {
+  @media (min-width: 601px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cols-3 {
+  @media (min-width: 601px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 901px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cols-4 {
+  @media (min-width: 601px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 901px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// Asymmetric splits: main + sidebar
+.split {
+  @extend .cols;
+}
+
+.split--2-1 {
+  @media (min-width: 720px) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+
+.split--3-2 {
+  @media (min-width: 720px) {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+.split--3-1 {
+  @media (min-width: 992px) {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &--sm {
+    gap: 8px;
+  }
+
+  &--lg {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 16px 16px 24px;
+  }
+
+  .main--nav {
+    padding-bottom: calc(90px + var(--safe-bottom));
+  }
+
+  .page-title {
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .page-header__actions {
+    justify-content: flex-end;
+
+    .btn {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 10px;
+    }
+  }
+}
