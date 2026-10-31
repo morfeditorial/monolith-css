@@ -1,0 +1,82 @@
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+html,
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.125rem 0.35rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+hr {
+  border: none;
+  border-top: var(--border-w) solid var(--border);
+}
