@@ -1,0 +1,212 @@
+// =============================================================================
+// TERMINAL / LOG VIEWER
+// toolbar, stats bar, scrolling log pane and floating scroll button
+// =============================================================================
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.toolbar__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.toolbar__search {
+  flex: 1;
+  min-width: 150px;
+}
+
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.stats-bar__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+
+  > :last-child {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  &--end {
+    margin-left: auto;
+  }
+}
+
+.terminal-wrap {
+  position: relative;
+}
+
+.terminal {
+  height: calc(100vh - 420px);
+  min-height: 300px;
+  padding: 16px;
+  overflow-y: auto;
+  overflow-anchor: none;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  background: #000;
+  color: #e0e0e0;
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-base);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.terminal__line {
+  margin-bottom: 2px;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  mark {
+    padding: 0 2px;
+    background: var(--warning);
+    color: #111;
+    border-radius: 2px;
+  }
+}
+
+.terminal__time {
+  color: #666;
+}
+
+// Log levels
+.log--debug {
+  color: #3b82f6;
+}
+
+.log--info {
+  color: #12b981;
+}
+
+.log--warning {
+  color: #f59e0b;
+}
+
+.log--error {
+  color: #ef4444;
+}
+
+.log--critical {
+  color: #ff3b30;
+  font-weight: 700;
+}
+
+// Floating round action button
+.fab {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  color: var(--on-primary);
+  border: var(--border-w) solid var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-btn);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  &--fixed {
+    position: fixed;
+  }
+}
+
+@media (max-width: 600px) {
+  .terminal {
+    height: calc(100vh - 260px);
+    padding: 12px;
+    font-size: 11px;
+  }
+
+  .toolbar {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .toolbar__search {
+    flex-basis: 100%;
+    order: 10;
+  }
+
+  .toolbar__filters {
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    overflow-x: auto;
+  }
+
+  .stats-bar {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .fab {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
