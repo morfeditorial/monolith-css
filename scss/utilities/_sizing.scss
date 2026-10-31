@@ -1,0 +1,61 @@
+// =============================================================================
+// SIZING UTILITIES
+// width, height, min/max and size
+// =============================================================================
+
+@use 'sass:map';
+@use '../abstracts/tokens' as *;
+
+$dimension: map.merge($spacing, map.merge($fractions, (
+  'auto': auto,
+  'full': 100%,
+  'screen': 100vw,
+  'min': min-content,
+  'max': max-content,
+  'fit': fit-content
+)));
+
+$utilities: (
+  'width': (
+    'properties': (width),
+    'prefix': 'w',
+    'values': $dimension,
+    'responsive': true
+  ),
+  'height': (
+    'properties': (height),
+    'prefix': 'h',
+    'values': map.merge($dimension, ('screen': 100vh, 'dvh': 100dvh)),
+    'responsive': true
+  ),
+  'size': (
+    'properties': (width height),
+    'prefix': 'size',
+    'values': map.merge($spacing, ('full': 100%, 'auto': auto)),
+    'responsive': false
+  ),
+  'min-width': (
+    'properties': (min-width),
+    'prefix': 'min-w',
+    'values': ('0': 0, 'full': 100%, 'min': min-content, 'max': max-content, 'fit': fit-content),
+    'responsive': false
+  ),
+  'min-height': (
+    'properties': (min-height),
+    'prefix': 'min-h',
+    'values': ('0': 0, 'full': 100%, 'screen': 100vh, 'dvh': 100dvh),
+    'responsive': false
+  ),
+  'max-width': (
+    'properties': (max-width),
+    'prefix': 'max-w',
+    'values': map.merge($max-widths, ('none': none, 'prose': 65ch)),
+    'responsive': true
+  ),
+  'max-height': (
+    'properties': (max-height),
+    'prefix': 'max-h',
+    'values': ('full': 100%, 'screen': 100vh, 'none': none),
+    'responsive': false
+  )
+);

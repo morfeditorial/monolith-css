@@ -9,10 +9,12 @@
 @use 'layout';
 @use 'flex-grid';
 @use 'spacing';
+@use 'sizing';
 
 $all: ();
 $all: map.merge($all, layout.$utilities);
 $all: map.merge($all, flex-grid.$utilities);
 $all: map.merge($all, spacing.$utilities);
+$all: map.merge($all, sizing.$utilities);
 
 @include generate($all);
