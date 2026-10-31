@@ -1,0 +1,33 @@
+// =============================================================================
+// CONFIGURATION
+// Feature flags. Override with: @use 'monolith-css' with ($enable-dark-mode: false);
+// =============================================================================
+
+// Output
+$import-fonts: true !default;
+$enable-responsive: true !default;
+$enable-states: true !default;
+$enable-negative-margins: true !default;
+$enable-important: false !default;
+
+// Theming
+$enable-dark-mode: true !default;
+$enable-telegram-theme: true !default;
+
+// Optional compatibility layers (legacy class names)
+$enable-compat-telesender: true !default;
+$enable-compat-machinima: true !default;
+
+// State variants generated for utilities that opt in
+$state-variants: ('hover', 'focus', 'active') !default;
+
+// Directional shorthand used by spacing and border utilities
+$directions: (
+  '': ('top', 'right', 'bottom', 'left'),
+  't': ('top',),
+  'r': ('right',),
+  'b': ('bottom',),
+  'l': ('left',),
+  'x': ('left', 'right'),
+  'y': ('top', 'bottom')
+) !default;
