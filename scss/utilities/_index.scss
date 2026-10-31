@@ -1,0 +1,14 @@
+// =============================================================================
+// UTILITIES
+// Merges every family so that base, state and responsive variants are emitted
+// in three global passes (responsive always wins over base).
+// =============================================================================
+
+@use 'sass:map';
+@use 'generator' as *;
+@use 'layout';
+
+$all: ();
+$all: map.merge($all, layout.$utilities);
+
+@include generate($all);

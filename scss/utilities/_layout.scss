@@ -1,0 +1,157 @@
+// =============================================================================
+// LAYOUT UTILITIES
+// display, position, inset, z-index, overflow, visibility, object, aspect
+// =============================================================================
+
+@use 'sass:map';
+@use 'sass:string';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+
+$inset-values: map.merge($spacing, ('auto': auto, 'full': 100%));
+
+$utilities: (
+  'display': (
+    'properties': (display),
+    'prefix': '',
+    'values': (
+      'block': block,
+      'inline-block': inline-block,
+      'inline': inline,
+      'flex': flex,
+      'inline-flex': inline-flex,
+      'grid': grid,
+      'inline-grid': inline-grid,
+      'table': table,
+      'contents': contents,
+      'hidden': none
+    ),
+    'responsive': true
+  ),
+  'position': (
+    'properties': (position),
+    'prefix': '',
+    'values': (
+      'static': static,
+      'fixed': fixed,
+      'absolute': absolute,
+      'relative': relative,
+      'sticky': sticky
+    ),
+    'responsive': true
+  ),
+  'inset': (
+    'properties': (top right bottom left),
+    'prefix': 'inset',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'inset-x': (
+    'properties': (left right),
+    'prefix': 'inset-x',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'inset-y': (
+    'properties': (top bottom),
+    'prefix': 'inset-y',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'top': (
+    'properties': (top),
+    'prefix': 'top',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'right': (
+    'properties': (right),
+    'prefix': 'right',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'bottom': (
+    'properties': (bottom),
+    'prefix': 'bottom',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'left': (
+    'properties': (left),
+    'prefix': 'left',
+    'values': $inset-values,
+    'responsive': true
+  ),
+  'z-index': (
+    'properties': (z-index),
+    'prefix': 'z',
+    'values': $z-index,
+    'responsive': false
+  ),
+  'overflow': (
+    'properties': (overflow),
+    'prefix': 'overflow',
+    'values': (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll
+    ),
+    'responsive': true
+  ),
+  'overflow-x': (
+    'properties': (overflow-x),
+    'prefix': 'overflow-x',
+    'values': (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll
+    ),
+    'responsive': true
+  ),
+  'overflow-y': (
+    'properties': (overflow-y),
+    'prefix': 'overflow-y',
+    'values': (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll
+    ),
+    'responsive': true
+  ),
+  'visibility': (
+    'properties': (visibility),
+    'prefix': '',
+    'values': (
+      'visible': visible,
+      'invisible': hidden
+    ),
+    'responsive': false
+  ),
+  'object-fit': (
+    'properties': (object-fit),
+    'prefix': 'object',
+    'values': (
+      'cover': cover,
+      'contain': contain,
+      'fill': fill,
+      'none': none
+    ),
+    'responsive': false
+  ),
+  'aspect-ratio': (
+    'properties': (aspect-ratio),
+    'prefix': 'aspect',
+    'values': (
+      'auto': auto,
+      'square': 1,
+      'video': string.unquote('16 / 9'),
+      'photo': string.unquote('4 / 3'),
+      'a4': string.unquote('210 / 297')
+    ),
+    'responsive': false
+  )
+);
