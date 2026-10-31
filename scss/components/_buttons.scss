@@ -1,0 +1,170 @@
+// =============================================================================
+// BUTTONS
+// <button class="btn btn--primary btn--sm">
+// =============================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: var(--surface);
+  color: var(--text);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-btn);
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.15s ease;
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled {
+    opacity: 0.5;
+    box-shadow: none;
+    transform: none;
+    pointer-events: none;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+}
+
+// Colors
+.btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn--success {
+  background: var(--success);
+  color: #fff;
+}
+
+.btn--danger,
+.btn--error {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn--warning {
+  background: var(--warning);
+  color: #111;
+}
+
+.btn--info {
+  background: var(--info);
+  color: #fff;
+}
+
+// Transparent, no shadow
+.btn--ghost {
+  background: transparent;
+  box-shadow: none;
+
+  &:active {
+    background: var(--primary-soft);
+  }
+}
+
+// Outlined variant of a color: .btn.btn--outline.btn--success
+.btn--outline {
+  background: transparent;
+
+  &.btn--primary {
+    color: var(--text);
+  }
+
+  &.btn--success {
+    border-color: var(--success);
+    color: var(--success);
+  }
+
+  &.btn--danger,
+  &.btn--error {
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+
+  &.btn--warning {
+    border-color: var(--warning);
+    color: var(--warning);
+  }
+
+  &.btn--info {
+    border-color: var(--info);
+    color: var(--info);
+  }
+}
+
+// For dark backgrounds
+.btn--inverted {
+  border-color: #fff;
+  box-shadow: 3px 3px 0 #fff;
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+// Sizes
+.btn--sm {
+  padding: 7px 12px;
+  font-size: 11px;
+}
+
+.btn--lg {
+  padding: 14px 22px;
+  font-size: 14px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  &.btn--sm {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.btn--active {
+  background: var(--accent);
+  color: #fff;
+}
+
+// Layout helper
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+
+  &--stretch > .btn {
+    flex: 1;
+  }
+}

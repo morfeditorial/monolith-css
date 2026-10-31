@@ -15,5 +15,8 @@
 @use 'base/reset';
 @use 'base/typography';
 
+// Components layer (before utilities so utilities can override)
+@use 'components';
+
 // Utilities layer
 @use 'utilities';
