@@ -11,6 +11,7 @@
 @use 'spacing';
 @use 'sizing';
 @use 'colors';
+@use 'borders';
 
 $all: ();
 $all: map.merge($all, layout.$utilities);
@@ -18,5 +19,6 @@ $all: map.merge($all, flex-grid.$utilities);
 $all: map.merge($all, spacing.$utilities);
 $all: map.merge($all, sizing.$utilities);
 $all: map.merge($all, colors.$utilities);
+$all: map.merge($all, borders.$utilities);
 
 @include generate($all);

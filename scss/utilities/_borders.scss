@@ -1,0 +1,82 @@
+// =============================================================================
+// BORDER UTILITIES
+// width (all sides + t r b l x y), style, radius, outline
+// =============================================================================
+
+@use 'sass:list';
+@use 'sass:map';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+
+$width-values: map.merge(('DEFAULT': var(--border-w)), $border-widths);
+$radius-values: map.merge(('DEFAULT': var(--radius)), $radius);
+
+$utilities: ();
+
+@each $dir, $sides in $directions {
+  $props: ();
+
+  @if $dir == '' {
+    $props: (border-width,);
+  } @else {
+    @each $side in $sides {
+      $props: list.append($props, 'border-#{$side}-width');
+    }
+  }
+
+  $prefix: 'border-#{$dir}';
+  $id: 'border-width-#{$dir}';
+
+  @if $dir == '' {
+    $prefix: 'border';
+    $id: 'border-width-all';
+  }
+
+  $utilities: map.set($utilities, $id, (
+    'properties': $props,
+    'prefix': $prefix,
+    'values': $width-values,
+    'responsive': false
+  ));
+}
+
+$utilities: map.merge($utilities, (
+  'border-style': (
+    'properties': (border-style),
+    'prefix': 'border',
+    'values': (
+      'solid': solid,
+      'dashed': dashed,
+      'dotted': dotted,
+      'none': none
+    ),
+    'responsive': false
+  ),
+  'rounded': (
+    'properties': (border-radius),
+    'prefix': 'rounded',
+    'values': $radius-values,
+    'responsive': false
+  ),
+  'rounded-t': (
+    'properties': (border-top-left-radius border-top-right-radius),
+    'prefix': 'rounded-t',
+    'values': $radius-values,
+    'responsive': false
+  ),
+  'rounded-b': (
+    'properties': (border-bottom-left-radius border-bottom-right-radius),
+    'prefix': 'rounded-b',
+    'values': $radius-values,
+    'responsive': false
+  ),
+  'outline': (
+    'properties': (outline),
+    'prefix': 'outline',
+    'values': (
+      'none': none,
+      'solid': var(--border-w) solid var(--border)
+    ),
+    'responsive': false
+  )
+));
