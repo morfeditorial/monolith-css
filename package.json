@@ -1,0 +1,51 @@
+{
+  "name": "monolith-css",
+  "version": "0.1.0",
+  "description": "Brutalist CSS framework: themable tokens, atomic utilities and ready-made components in one package.",
+  "sass": "scss/main.scss",
+  "style": "dist/monolith.css",
+  "main": "dist/monolith.css",
+  "files": [
+    "dist/**/*",
+    "scss/**/*",
+    "js/**/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:min": "npm run build:css:min && npm run build:js:min",
+    "build:css": "sass scss/main.scss dist/monolith.css --style=expanded --no-source-map",
+    "build:css:min": "sass scss/main.scss dist/monolith.min.css --style=compressed --no-source-map",
+    "build:js": "esbuild js/index.js --bundle --format=iife --global-name=Monolith --outfile=dist/monolith.js",
+    "build:js:min": "esbuild js/index.js --bundle --minify --format=iife --global-name=Monolith --outfile=dist/monolith.min.js",
+    "watch": "sass scss/main.scss dist/monolith.css --watch",
+    "dev": "npm run watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChernegaSergiy/monolith-css.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "framework",
+    "brutalist",
+    "utility-first",
+    "design-system"
+  ],
+  "author": "Serhii Cherneha",
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "sass": "^1.80.0"
+  },
+  "peerDependencies": {
+    "sass": "^1.80.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
