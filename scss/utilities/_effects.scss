@@ -1,0 +1,113 @@
+// =============================================================================
+// EFFECT UTILITIES
+// opacity, shadow, cursor, pointer-events, select, resize, transition,
+// translate (brutalist "press" offsets), stroke-width
+// =============================================================================
+
+@use 'sass:map';
+@use 'sass:math';
+@use '../abstracts/tokens' as *;
+
+$opacities: ();
+
+@each $step in (0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100) {
+  $opacities: map.set($opacities, '#{$step}', math.div($step, 100));
+}
+
+$shadows: (
+  'none': none,
+  'inner-sm': inset 2px 2px 0 rgba(0, 0, 0, 0.05)
+);
+
+@each $key, $offset in $shadow-offsets {
+  $shadows: map.set($shadows, $key, var(--shadow-#{$key}));
+}
+
+// Names used by the brutalist components
+$shadows: map.merge($shadows, (
+  'brutal': var(--shadow-base),
+  'brutal-sm': var(--shadow-sm),
+  'brutal-xs': var(--shadow-xs),
+  'btn': var(--shadow-md)
+));
+
+$utilities: (
+  'opacity': (
+    'properties': (opacity),
+    'prefix': 'opacity',
+    'values': $opacities,
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'box-shadow': (
+    'properties': (box-shadow),
+    'prefix': 'shadow',
+    'values': $shadows,
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'cursor': (
+    'properties': (cursor),
+    'prefix': 'cursor',
+    'values': (
+      'pointer': pointer,
+      'default': default,
+      'text': text,
+      'move': move,
+      'wait': wait,
+      'not-allowed': not-allowed
+    ),
+    'responsive': false
+  ),
+  'pointer-events': (
+    'properties': (pointer-events),
+    'prefix': 'pointer-events',
+    'values': ('none': none, 'auto': auto),
+    'responsive': false
+  ),
+  'user-select': (
+    'properties': (user-select),
+    'prefix': 'select',
+    'values': ('none': none, 'text': text, 'all': all, 'auto': auto),
+    'responsive': false
+  ),
+  'resize': (
+    'properties': (resize),
+    'prefix': 'resize',
+    'values': ('none': none, 'y': vertical, 'x': horizontal, 'both': both),
+    'responsive': false
+  ),
+  'transition': (
+    'properties': (transition),
+    'prefix': 'transition',
+    'values': (
+      'none': none,
+      'all': all 0.1s ease,
+      'colors': (background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease),
+      'transform': transform 0.1s ease,
+      'shadow': box-shadow 0.1s ease,
+      'opacity': opacity 0.15s ease
+    ),
+    'responsive': false
+  ),
+  'translate': (
+    'properties': (transform),
+    'prefix': 'translate',
+    'values': (
+      'none': none,
+      'brutal-xs': translate(1px, 1px),
+      'brutal-sm': translate(1px, 1px),
+      'brutal': translate(2px, 2px),
+      'brutal-lg': translate(4px, 4px),
+      'up': translateY(-2px)
+    ),
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'stroke-width': (
+    'properties': (stroke-width),
+    'prefix': 'stroke',
+    'values': ('1': 1px, '1.5': 1.5px, '2': 2px, '2.5': 2.5px),
+    'responsive': false
+  )
+);
