@@ -1,0 +1,68 @@
+// =============================================================================
+// ACCORDION
+// Works with <details class="accordion"> (no js) or
+// <div class="accordion"> toggled with .is-open (js/accordion.js).
+// =============================================================================
+
+.accordion {
+  margin-bottom: 8px;
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Div variant: hidden until opened
+  &:not(details) > .accordion__content {
+    display: none;
+  }
+
+  &:not(details).is-open > .accordion__content {
+    display: block;
+  }
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.accordion__content {
+  padding: 0.75rem;
+  border-top: var(--border-w) solid var(--border);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.accordion__icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 900;
+
+  &::after {
+    content: '+';
+  }
+
+  details[open] > summary &::after,
+  .accordion.is-open > .accordion__trigger &::after {
+    content: '−';
+  }
+}
