@@ -1,0 +1,114 @@
+// =============================================================================
+// HELPERS
+// Single-purpose classes that do not fit the generator: truncation, line
+// clamping, screen-reader text, safe areas and animations.
+// =============================================================================
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@for $lines from 1 through 4 {
+  .line-clamp-#{$lines} {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+// Safe-area insets (notches, home indicators)
+.safe-pt {
+  padding-top: var(--safe-top);
+}
+
+.safe-pb {
+  padding-bottom: var(--safe-bottom);
+}
+
+// Animations
+@keyframes mn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mn-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes mn-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-spin {
+  animation: mn-spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: mn-pulse 2s ease-in-out infinite;
+}
+
+// Skeleton placeholder
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(var(--shimmer-base, 128, 128, 128), 0) 0%,
+      rgba(var(--shimmer-base, 128, 128, 128), 0.15) 20%,
+      rgba(var(--shimmer-base, 128, 128, 128), 0.3) 60%,
+      rgba(var(--shimmer-base, 128, 128, 128), 0)
+    );
+    animation: mn-shimmer 1.6s infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .animate-pulse,
+  .animate-shimmer::after {
+    animation: none;
+  }
+}
