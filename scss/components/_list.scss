@@ -1,0 +1,278 @@
+// =============================================================================
+// LIST, LIST ITEM, ROW CARD, FACT LIST, INFO ROW
+// =============================================================================
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px;
+  background: var(--surface);
+  color: var(--text);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-base);
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+}
+
+a.list-item:active,
+.list-item--link:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.list-item--top {
+  align-items: flex-start;
+}
+
+.list-item__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--surface-2);
+  color: var(--primary);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.list-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-item__title,
+.list-item__name {
+  margin-bottom: 4px;
+  overflow: hidden;
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.list-item__sub,
+.list-item__meta {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item__status {
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.list-item__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+// Flat variant: rows separated by 1px lines, no cards
+.list--flat {
+  gap: 0;
+
+  > .list-item {
+    padding: 0.55rem 0.7rem;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Card with title / text / meta and side actions (tasks, plugins, entries)
+.row-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 15px;
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-base);
+}
+
+.row-card__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-card__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.row-card__sub {
+  margin-bottom: 6px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-card__text {
+  max-height: 80px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.row-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.row-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+}
+
+.row-card__actions {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+// Label / value rows
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.info-row__label {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.info-row__value {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-left: auto;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+// Compact key / value list
+.fact-list {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.fact-list__value {
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .list-item {
+    padding: 12px;
+  }
+
+  .list-item__icon {
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .list-item__actions {
+    flex-direction: column;
+  }
+
+  .row-card {
+    flex-direction: column;
+  }
+
+  .row-card__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .btn {
+      flex: 1;
+    }
+  }
+}
