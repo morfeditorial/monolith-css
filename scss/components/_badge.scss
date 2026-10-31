@@ -1,0 +1,128 @@
+// =============================================================================
+// BADGE, PILL, TAG, STATUS DOT
+// =============================================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: var(--text);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-head);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge--success {
+  background: var(--success);
+  color: #fff;
+}
+
+.badge--warning {
+  background: var(--warning);
+  color: #111;
+}
+
+.badge--danger,
+.badge--error {
+  background: var(--danger);
+  color: #fff;
+}
+
+.badge--info {
+  background: var(--info);
+  color: #fff;
+}
+
+.badge--muted {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+// Outlined (no fill): .badge.badge--outline.badge--success
+.badge--outline {
+  background: transparent;
+
+  &.badge--success {
+    border-color: var(--success);
+    color: var(--success);
+  }
+
+  &.badge--warning {
+    border-color: var(--warning);
+    color: var(--warning);
+  }
+
+  &.badge--danger,
+  &.badge--error {
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+
+  &.badge--info {
+    border-color: var(--info);
+    color: var(--info);
+  }
+}
+
+.badge--sm {
+  padding: 1px 6px;
+  font-size: 9.5px;
+}
+
+.badge--lg {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+// Pills & tags (light, 1px)
+.pill-row,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+// Presence / connection dot
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+
+  &--offline {
+    background: var(--danger);
+  }
+
+  &--idle {
+    background: var(--warning);
+  }
+
+  &--pulse {
+    animation: mn-pulse 2s infinite;
+  }
+}
