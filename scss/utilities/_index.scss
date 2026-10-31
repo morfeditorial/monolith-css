@@ -8,9 +8,11 @@
 @use 'generator' as *;
 @use 'layout';
 @use 'flex-grid';
+@use 'spacing';
 
 $all: ();
 $all: map.merge($all, layout.$utilities);
 $all: map.merge($all, flex-grid.$utilities);
+$all: map.merge($all, spacing.$utilities);
 
 @include generate($all);

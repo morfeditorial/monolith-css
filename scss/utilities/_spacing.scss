@@ -1,0 +1,39 @@
+// =============================================================================
+// SPACING UTILITIES
+// m / p with directional variants (t r b l x y) and negative margins
+// =============================================================================
+
+@use 'sass:list';
+@use 'sass:map';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+
+$margin-values: map.merge($spacing, ('auto': auto));
+
+@if $enable-negative-margins {
+  $margin-values: map.merge($margin-values, negate-map($spacing));
+}
+
+$utilities: ();
+
+@each $abbr, $property, $values in ('m', 'margin', $margin-values), ('p', 'padding', $spacing) {
+  @each $dir, $sides in $directions {
+    $props: ();
+
+    @if $dir == '' {
+      $props: ($property,);
+    } @else {
+      @each $side in $sides {
+        $props: list.append($props, '#{$property}-#{$side}');
+      }
+    }
+
+    $utilities: map.set($utilities, '#{$abbr}#{$dir}', (
+      'properties': $props,
+      'prefix': '#{$abbr}#{$dir}',
+      'values': $values,
+      'responsive': true
+    ));
+  }
+}
