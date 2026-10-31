@@ -1,0 +1,50 @@
+// =============================================================================
+// PROGRESS
+// =============================================================================
+
+.progress {
+  padding: 12px;
+  background: var(--surface-2);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+}
+
+.progress__text {
+  margin-bottom: 8px;
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.progress__bar {
+  height: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+
+  &--thin {
+    height: 8px;
+  }
+}
+
+.progress__fill {
+  width: 0%;
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+
+  &--success {
+    background: var(--success);
+  }
+
+  &--warning {
+    background: var(--warning);
+  }
+
+  &--danger {
+    background: var(--danger);
+  }
+}
