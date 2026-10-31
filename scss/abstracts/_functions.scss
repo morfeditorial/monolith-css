@@ -1,0 +1,65 @@
+// =============================================================================
+// FUNCTIONS
+// Small helpers used by the token layer and the utility generator
+// =============================================================================
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+
+/// Convert a pixel value to rem.
+/// @param {Number} $px
+/// @param {Number} $base [16px]
+@function px-to-rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/// Escape characters that are not valid in a CSS class name.
+/// @param {String} $value
+/// @return {String}
+@function escape-ident($value) {
+  $value: '#{$value}';
+  $out: '';
+
+  @for $i from 1 through string.length($value) {
+    $char: string.slice($value, $i, $i);
+
+    @if list.index(('.', '/', ':', '%', '#'), $char) {
+      $out: $out + '\\' + $char;
+    } @else {
+      $out: $out + $char;
+    }
+  }
+
+  @return $out;
+}
+
+/// Escape a breakpoint name that starts with a digit (e.g. 2xl -> \32 xl).
+/// @param {String} $name
+/// @return {String}
+@function escape-breakpoint($name) {
+  $first: string.slice($name, 1, 1);
+
+  @if list.index(('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first) {
+    @return '\\3' + $first + ' ' + string.slice($name, 2);
+  }
+
+  @return $name;
+}
+
+/// Negate every numeric, non-zero value of a map and prefix its key with "-".
+/// @param {Map} $values
+/// @return {Map}
+@function negate-map($values) {
+  $result: ();
+
+  @each $key, $value in $values {
+    @if meta.type-of($value) == 'number' and $value != 0 {
+      $result: map.set($result, '-#{$key}', -$value);
+    }
+  }
+
+  @return $result;
+}
