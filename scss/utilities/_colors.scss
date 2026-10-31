@@ -1,0 +1,42 @@
+// =============================================================================
+// COLOR UTILITIES
+// bg-*, text-*, border-*, fill-*, stroke-* generated from $colors
+// =============================================================================
+
+@use '../abstracts/tokens' as *;
+
+$utilities: (
+  'background-color': (
+    'properties': (background-color),
+    'prefix': 'bg',
+    'values': $colors,
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'color': (
+    'properties': (color),
+    'prefix': 'text',
+    'values': $colors,
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'border-color': (
+    'properties': (border-color),
+    'prefix': 'border',
+    'values': $colors,
+    'responsive': false,
+    'states': ('hover', 'focus', 'active')
+  ),
+  'fill': (
+    'properties': (fill),
+    'prefix': 'fill',
+    'values': $colors,
+    'responsive': false
+  ),
+  'stroke': (
+    'properties': (stroke),
+    'prefix': 'stroke',
+    'values': $colors,
+    'responsive': false
+  )
+);
