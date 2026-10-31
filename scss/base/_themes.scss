@@ -1,0 +1,33 @@
+// =============================================================================
+// THEMES
+// Dark theme: follows the OS unless the page forces a theme with
+// <html data-theme="light|dark">.
+// =============================================================================
+
+@use 'sass:map';
+@use '../abstracts/config' as *;
+@use '../abstracts/tokens' as *;
+
+@mixin dark-variables {
+  @each $key, $value in $theme-dark {
+    @if $enable-telegram-theme and map.has-key($telegram-theme, $key) {
+      --#{$key}: var(--tg-theme-#{map.get($telegram-theme, $key)}, #{$value});
+    } @else {
+      --#{$key}: #{$value};
+    }
+  }
+
+  color-scheme: dark;
+}
+
+@if $enable-dark-mode {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      @include dark-variables;
+    }
+  }
+
+  :root[data-theme='dark'] {
+    @include dark-variables;
+  }
+}
