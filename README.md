@@ -1,13 +1,12 @@
 # Monolith CSS
 
 Brutalist CSS framework in one package: **themable tokens**, **atomic utilities** and **ready-made components**.
-It merges [concrete-css](https://github.com/medcore-ua/concrete-css), the machinima-core stylesheet and the TeleSender Web stylesheet into a single system.
 
-- **Themable** – colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
-- **Utilities** – generated from Sass maps: spacing, sizing, flex/grid, colors, borders, typography, shadows, plus `sm:` … `2xl:` and `hover:`/`focus:`/`active:` variants.
-- **Components** – buttons, cards, stats, badges, forms, lists, header, top/bottom navigation, modal, chips, progress, log terminal, table, accordion, alerts, hero, footer and more.
-- **Compat layers** – the old class names of all three sources keep working (each layer can be switched off).
-- **Tiny JS** – modal, accordion, nav toggle and theme switcher (optional, ~5 KB).
+- **Themable**: colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
+- **Utilities**: generated from Sass maps (spacing, sizing, flex/grid, colors, borders, typography, shadows) with `sm:` … `2xl:` and `hover:` / `focus:` / `active:` variants.
+- **Components**: buttons, cards, stats, badges, forms, lists, header, bottom navigation, modal, chips, progress, log terminal, alerts and settings rows.
+- **Compat layer**: the class names of the machinima-core stylesheet keep working (can be switched off).
+- **Tiny JS** (optional): modal and theme switcher.
 
 ## Install
 
@@ -25,28 +24,11 @@ Or from Sass:
 ```scss
 @use 'pkg:monolith-css' with (
   $enable-dark-mode: true,
-  $enable-compat-telesender: false,
-  $theme: (
-    'primary': #0a0a0a,
-    'accent': #ff3b30,
-    'surface': #ffffff,
-    'background': #f4f4f0,
-    'border': #0a0a0a,
-    'text': #0a0a0a,
-    'muted': #6b6b6b,
-    'primary-2': #2b2b2b,
-    'primary-soft': #ececec,
-    'on-primary': #ffffff,
-    'surface-2': #f0f0ec,
-    'success': #12b981,
-    'warning': #f59e0b,
-    'danger': #ff3b30,
-    'info': #3b82f6
-  )
+  $enable-compat-machinima: false
 );
 ```
 
-`pkg:` needs `sass --pkg-importer=node` (Sass 1.71+). `$theme` replaces the whole map, so list every key (or merge with the defaults in your own file). Dark overrides live in `$theme-dark`.
+`pkg:` needs `sass --pkg-importer=node` (Sass 1.71+). Override the palette through `$theme` (the whole map, so list every key) and dark overrides through `$theme-dark`.
 
 ## Quick look
 
@@ -77,7 +59,7 @@ Open [`examples/index.html`](examples/index.html) after `npm run build` for a fu
 | Utility | short atomic names | `px-4`, `bg-surface`, `text-muted` |
 | Variant | `variant:utility` | `md:flex`, `hover:bg-primary`, `active:translate-brutal` |
 
-Spacing uses a 4 px unit (`p-4` = 16 px, `-mt-0.5` = −2 px). Shadows are hard offsets that follow `--border`: `shadow-brutal-xs/sm/btn/brutal/lg/xl`.
+Spacing uses a 4 px unit (`p-4` = 16 px, `-mt-0.5` = −2 px). Shadows are hard offsets that follow `--border`: `shadow-brutal-xs`, `shadow-brutal-sm`, `shadow-btn`, `shadow-brutal`, `shadow-lg`, `shadow-xl`.
 
 ## Theming
 
@@ -94,14 +76,10 @@ Inside Telegram Mini Apps `--primary`, `--surface`, `--background`, `--text`, `-
 ```bash
 npm run build       # dist/monolith.css + dist/monolith.js
 npm run build:min   # minified
-npm test            # build + verify legacy classes still exist
+npm test            # build + verify the machinima-core classes still exist
 ```
 
-The unpurged CSS is large (all variants); run it through PurgeCSS / Lightning CSS in production, or set `$enable-responsive: false` / `$enable-states: false`.
-
-## Migrating
-
-See [docs/MIGRATION.md](docs/MIGRATION.md) for the class mapping from concrete-css, machinima-core and TeleSender Web.
+The unpurged CSS is large (all variants). Run it through PurgeCSS in production, or set `$enable-responsive: false` / `$enable-states: false`.
 
 ## License
 
