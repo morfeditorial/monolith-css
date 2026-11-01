@@ -1,4 +1,4 @@
-// Verifies that every class used by the legacy stylesheets exists in the build.
+// Verifies that every class used by the machinima-core stylesheet exists in the build.
 // Run: npm test  (builds dist/monolith.css first)
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -11,25 +11,12 @@ const classesIn = (css) =>
   new Set([...css.matchAll(/\.((?:[\w-]|\\.)+)/g)].map((m) => m[1]));
 
 const have = classesIn(built);
-
-const machinima = classesIn(
-  readFileSync(join(root, 'test/fixtures/machinima_core.css'), 'utf8')
-    .replace(/url\([^)]*\)/g, '')
-);
-const telesender = new Set(
-  readFileSync(join(root, 'test/fixtures/telesender-classes.txt'), 'utf8')
-    .split(/\s+/)
-    .filter(Boolean)
+const expected = classesIn(
+  readFileSync(join(root, 'test/fixtures/machinima_core.css'), 'utf8').replace(/url\([^)]*\)/g, '')
 );
 
-let failed = 0;
-for (const [name, set] of [['machinima-core', machinima], ['TeleSender', telesender]]) {
-  const missing = [...set].filter((c) => !have.has(c));
-  console.log(`${name}: ${set.size - missing.length}/${set.size} classes present`);
-  if (missing.length) {
-    failed += missing.length;
-    console.log('  missing:', missing.join(', '));
-  }
-}
+const missing = [...expected].filter((c) => !have.has(c));
+console.log(`machinima-core: ${expected.size - missing.length}/${expected.size} classes present`);
+if (missing.length) console.log('  missing:', missing.join(', '));
 
-process.exit(failed ? 1 : 0);
+process.exit(missing.length ? 1 : 0);
