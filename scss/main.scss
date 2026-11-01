@@ -18,5 +18,8 @@
 // Components layer (before utilities so utilities can override)
 @use 'components';
 
+// Compatibility layers (legacy class names, extend component rules)
+@use 'compat/telesender';
+
 // Utilities layer
 @use 'utilities';
