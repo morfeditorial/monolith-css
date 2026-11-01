@@ -21,6 +21,7 @@
 // Compatibility layers (legacy class names, extend component rules)
 @use 'compat/telesender';
 @use 'compat/machinima';
+@use 'compat/concrete';
 
 // Utilities layer
 @use 'utilities';
