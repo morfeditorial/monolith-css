@@ -3,7 +3,7 @@
 Compat layers are on by default, so existing markup keeps working. New code should use the canonical names below. Turn a layer off once you have migrated:
 
 ```scss
-@use 'monolith-css' with (
+@use 'pkg:monolith-css' with (
   $enable-compat-telesender: false,
   $enable-compat-machinima: false,
   $enable-compat-concrete: false

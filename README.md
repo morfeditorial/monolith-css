@@ -23,7 +23,7 @@ npm install monolith-css
 Or from Sass:
 
 ```scss
-@use 'monolith-css' with (
+@use 'pkg:monolith-css' with (
   $enable-dark-mode: true,
   $enable-compat-telesender: false,
   $theme: (
@@ -45,6 +45,8 @@ Or from Sass:
   )
 );
 ```
+
+`pkg:` needs `sass --pkg-importer=node` (Sass 1.71+). `$theme` replaces the whole map, so list every key (or merge with the defaults in your own file). Dark overrides live in `$theme-dark`.
 
 ## Quick look
 
