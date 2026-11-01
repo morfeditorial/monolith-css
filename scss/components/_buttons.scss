@@ -60,8 +60,7 @@
   color: #fff;
 }
 
-.btn--danger,
-.btn--error {
+.btn--danger {
   background: var(--danger);
   color: #fff;
 }
@@ -99,8 +98,7 @@
     color: var(--success);
   }
 
-  &.btn--danger,
-  &.btn--error {
+  &.btn--danger {
     border-color: var(--danger);
     color: var(--danger);
   }
