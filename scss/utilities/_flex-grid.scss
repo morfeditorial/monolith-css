@@ -14,13 +14,6 @@ $columns: (
   '6': repeat(6, minmax(0, 1fr)),
   '12': repeat(12, minmax(0, 1fr)),
   'none': none,
-  '2-1': minmax(0, 2fr) minmax(0, 1fr),
-  '1-2': minmax(0, 1fr) minmax(0, 2fr),
-  '3-2': minmax(0, 3fr) minmax(0, 2fr),
-  '3-1': minmax(0, 3fr) minmax(0, 1fr),
-  '4-1': minmax(0, 4fr) minmax(0, 1fr),
-  'main': minmax(0, 2fr) minmax(260px, 1fr),
-  'main-lg': minmax(0, 4fr) minmax(320px, 2fr),
   'auto-fit': repeat(auto-fit, minmax(220px, 1fr)),
   'auto-fill': repeat(auto-fill, minmax(220px, 1fr))
 );
