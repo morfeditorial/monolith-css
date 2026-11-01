@@ -8,6 +8,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Versioning: [S
 
 - Design tokens exposed as CSS custom properties, dark theme and Telegram Mini App binding.
 - Utility generator with responsive and state variants.
-- Components from concrete-css, machinima-core and TeleSender Web.
-- Compat layers for the three source stylesheets and a test that checks their classes.
-- JS modules: modal, accordion, nav toggle, theme switcher.
+- Components: buttons, cards, forms, lists, header, bottom navigation, modal, chips, progress, log terminal, alerts, settings rows.
+- Compat layer for machinima-core class names and a test that checks them.
+- JS modules: modal and theme switcher.
