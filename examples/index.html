@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Monolith CSS — showcase</title>
+  <link rel="stylesheet" href="../dist/monolith.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="logo" href="#"><span class="logo__mark">M</span>Monolith</a>
+      <button class="btn btn--sm btn--ghost" data-theme-toggle>Theme</button>
+      <span class="header__status"><span class="status-dot"></span> Online</span>
+    </div>
+  </header>
+
+  <main class="main main--nav">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="page-header__actions">
+        <button class="btn btn--primary btn--sm" data-modal-open="#demo-modal">New task</button>
+        <button class="btn btn--sm">Export</button>
+      </div>
+    </div>
+
+    <div class="cols-4">
+      <div class="stat"><div class="stat__label">Sent</div><div class="stat__value">1 284</div></div>
+      <div class="stat"><div class="stat__label">Success</div><div class="stat__value stat__value--success">98%</div></div>
+      <div class="stat"><div class="stat__label">Pending</div><div class="stat__value stat__value--warning">12</div></div>
+      <div class="stat"><div class="stat__label">Failed</div><div class="stat__value stat__value--danger">3</div></div>
+    </div>
+
+    <h2 class="section-title">Buttons &amp; badges</h2>
+    <div class="btn-group">
+      <button class="btn">Default</button>
+      <button class="btn btn--primary">Primary</button>
+      <button class="btn btn--success">Success</button>
+      <button class="btn btn--danger">Danger</button>
+      <button class="btn btn--outline btn--info">Outline</button>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-4">
+      <span class="badge">Default</span>
+      <span class="badge badge--success">Success</span>
+      <span class="badge badge--warning">Warning</span>
+      <span class="badge badge--danger">Danger</span>
+      <span class="badge badge--info">Info</span>
+      <span class="badge badge--muted">Muted</span>
+    </div>
+
+    <h2 class="section-title">Chips &amp; list</h2>
+    <div class="chips">
+      <button class="chip is-active">All <span class="chip__count">4</span></button>
+      <button class="chip">Active <span class="chip__count">2</span></button>
+      <button class="chip">Paused <span class="chip__count">2</span></button>
+    </div>
+    <div class="list">
+      <a class="list-item" href="#">
+        <div class="list-item__icon">TG</div>
+        <div class="list-item__body">
+          <div class="list-item__title">Morning digest</div>
+          <div class="list-item__sub">Every day at 08:00 · @channel</div>
+        </div>
+        <span class="badge badge--success">On</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Form</h2>
+    <div class="card">
+      <div class="card__title">Create task</div>
+      <div class="field"><label class="field__label">Chat</label><input class="input" placeholder="@username"></div>
+      <div class="field"><label class="field__label">Message</label><textarea class="textarea"></textarea><span class="field__hint">Markdown supported</span></div>
+      <div class="checkbox"><input type="checkbox" id="once" checked><label for="once">Send once</label></div>
+      <div class="progress mt-4"><div class="progress__text">Uploading 60%</div><div class="progress__bar"><div class="progress__fill" style="width:60%"></div></div></div>
+    </div>
+
+    <h2 class="section-title">Alerts &amp; accordion</h2>
+    <div class="alert alert--warning mb-4"><div><div class="alert__title">Heads up</div>Queue is almost full.</div></div>
+    <div data-accordion-mode="single">
+      <div class="accordion is-open"><button class="accordion__trigger">What is Monolith? <span class="accordion__icon"></span></button><div class="accordion__content">One brutalist stylesheet for every project.</div></div>
+      <div class="accordion"><button class="accordion__trigger">Dark mode? <span class="accordion__icon"></span></button><div class="accordion__content">Automatic, or force with data-theme.</div></div>
+    </div>
+
+    <h2 class="section-title">Logs</h2>
+    <div class="terminal-wrap"><div class="terminal" style="height:140px;min-height:0"><div class="terminal__line"><span class="terminal__time">12:00:01</span> <span class="log--info">INFO</span> Started</div><div class="terminal__line"><span class="terminal__time">12:00:05</span> <span class="log--error">ERROR</span> Chat not found</div></div></div>
+  </main>
+
+  <nav class="bottom-nav"><div class="bottom-nav__inner">
+    <button class="bottom-nav__item is-active"><span class="bottom-nav__emoji">🏠</span><span class="bottom-nav__label">Home</span></button>
+    <button class="bottom-nav__item"><span class="bottom-nav__emoji">📋</span><span class="bottom-nav__label">Tasks</span></button>
+    <button class="bottom-nav__item"><span class="bottom-nav__emoji">⚙️</span><span class="bottom-nav__label">Settings</span></button>
+  </div></nav>
+
+  <div class="modal" id="demo-modal">
+    <div class="modal__dialog">
+      <div class="modal__header"><h3 class="modal__title">New task</h3><button class="modal__close" data-modal-close>×</button></div>
+      <div class="modal__body">Modal content.</div>
+    </div>
+  </div>
+
+  <script src="../dist/monolith.js"></script>
+</body>
+</html>
