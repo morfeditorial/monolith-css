@@ -1,10 +1,7 @@
 // =============================================================================
 // LAYOUT
-// app shell, main, container, sections, page titles, column grids, stack
+// app shell, main, page titles, column grids, stack
 // =============================================================================
-
-@use 'sass:map';
-@use '../abstracts/tokens' as *;
 
 .app {
   display: flex;
@@ -23,21 +20,6 @@
 // Reserve room for a fixed .bottom-nav
 .main--nav {
   padding-bottom: calc(100px + var(--safe-bottom));
-}
-
-.container {
-  width: 100%;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 map.get($page-gutter, 'sm');
-
-  @media (min-width: 768px) {
-    padding: 0 map.get($page-gutter, 'md');
-  }
-
-  @media (min-width: 1200px) {
-    padding: 0 map.get($page-gutter, 'lg');
-  }
 }
 
 .page-title {
@@ -85,53 +67,6 @@
   gap: 8px;
 }
 
-// Full-width band with a heavy bottom rule
-.section {
-  position: relative;
-  padding: 1.75rem 0 2rem;
-  border-bottom: 4px solid var(--border);
-
-  &--thin {
-    border-bottom-width: var(--border-w);
-  }
-
-  &--flush {
-    border-bottom: none;
-  }
-}
-
-.section__header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  min-width: 0;
-  margin-bottom: 1.1rem;
-}
-
-.section__eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.section__title {
-  font-size: clamp(1.5rem, 5vw, 2.8rem);
-  font-weight: 900;
-  line-height: 1.1;
-  text-transform: uppercase;
-
-  &--compact {
-    font-size: 1.1rem;
-    line-height: 1.3;
-  }
-}
-
-.section__description {
-  max-width: 32rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
 // Column grids that collapse on small screens
 .cols {
   display: grid;
@@ -168,29 +103,6 @@
 
   @media (min-width: 901px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-// Asymmetric splits: main + sidebar
-.split {
-  @extend .cols;
-}
-
-.split--2-1 {
-  @media (min-width: 720px) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  }
-}
-
-.split--3-2 {
-  @media (min-width: 720px) {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  }
-}
-
-.split--3-1 {
-  @media (min-width: 992px) {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   }
 }
 
