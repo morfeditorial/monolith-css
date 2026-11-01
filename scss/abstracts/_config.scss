@@ -17,6 +17,7 @@ $enable-telegram-theme: true !default;
 // Optional compatibility layers (legacy class names)
 $enable-compat-telesender: true !default;
 $enable-compat-machinima: true !default;
+$enable-compat-concrete: true !default;
 
 // State variants generated for utilities that opt in
 $state-variants: ('hover', 'focus', 'active') !default;
