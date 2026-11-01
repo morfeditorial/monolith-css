@@ -83,4 +83,4 @@ The unpurged CSS is large (all variants). Run it through PurgeCSS in production,
 
 ## License
 
-CSSM Unlimited License v2.0 (CSSM-ULv2). See [LICENSE](LICENSE).
+This library is licensed under the CSSM Unlimited License v2.0 (CSSM-ULv2). See the [LICENSE](LICENSE) file for details.
