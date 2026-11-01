@@ -1,0 +1,56 @@
+// =============================================================================
+// COMPAT: machinima-core
+// Utility names already match; this adds the remaining app-shell helpers.
+// Disable with: @use 'monolith-css' with ($enable-compat-machinima: false);
+// =============================================================================
+
+@use '../abstracts/config' as *;
+@use '../components';
+
+@if $enable-compat-machinima {
+  .app-container { @extend .app; }
+
+  .main-content {
+    position: relative;
+    flex: 1;
+    overflow: hidden auto;
+  }
+
+  #main-content,
+  #skeleton-overlay-active {
+    padding-bottom: var(--bottom-overlay-height, 0px);
+  }
+
+  .min-w-120 {
+    min-width: 120px;
+  }
+
+  .max-w-600 {
+    max-width: 600px;
+  }
+
+  .pb-30 {
+    padding-bottom: 120px;
+  }
+
+  .focus\:bg-white:focus {
+    background-color: var(--surface);
+  }
+
+  .active\:shadow-none:active {
+    box-shadow: none !important;
+  }
+
+  .active\:shadow-xs:active {
+    box-shadow: var(--shadow-xs) !important;
+  }
+
+  // Telegram Mini App flags (body.is-tma)
+  body.is-tma .hide-on-tma {
+    display: none !important;
+  }
+
+  body.is-tma .tma-pt-6 {
+    padding-top: 24px;
+  }
+}
