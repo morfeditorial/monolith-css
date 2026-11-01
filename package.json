@@ -20,7 +20,8 @@
     "build:js": "esbuild js/index.js --bundle --format=iife --global-name=Monolith --outfile=dist/monolith.js",
     "build:js:min": "esbuild js/index.js --bundle --minify --format=iife --global-name=Monolith --outfile=dist/monolith.min.js",
     "watch": "sass scss/main.scss dist/monolith.css --watch",
-    "dev": "npm run watch"
+    "dev": "npm run watch",
+    "test": "npm run build:css && node test/compat.test.mjs"
   },
   "repository": {
     "type": "git",
