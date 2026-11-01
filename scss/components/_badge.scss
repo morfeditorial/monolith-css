@@ -1,5 +1,5 @@
 // =============================================================================
-// BADGE, PILL, TAG, STATUS DOT
+// BADGE, STATUS DOT
 // =============================================================================
 
 .badge {
@@ -29,8 +29,7 @@
   color: #111;
 }
 
-.badge--danger,
-.badge--error {
+.badge--danger {
   background: var(--danger);
   color: #fff;
 }
@@ -59,8 +58,7 @@
     color: var(--warning);
   }
 
-  &.badge--danger,
-  &.badge--error {
+  &.badge--danger {
     border-color: var(--danger);
     color: var(--danger);
   }
@@ -79,31 +77,6 @@
 .badge--lg {
   padding: 6px 14px;
   font-size: 12px;
-}
-
-// Pills & tags (light, 1px)
-.pill-row,
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.pill {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-}
-
-.tag {
-  display: inline-block;
-  padding: 0.05rem 0.4rem;
-  border: 1px solid var(--border);
-  font-size: 0.65rem;
-  text-transform: uppercase;
 }
 
 // Presence / connection dot
