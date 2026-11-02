@@ -10,11 +10,13 @@
 [![Total Downloads](https://img.shields.io/npm/dt/monolith-css.svg?label=Downloads&logo=npm)](https://www.npmjs.com/package/monolith-css)
 [![License](https://img.shields.io/npm/l/monolith-css.svg?label=Licence&logo=open-source-initiative)](https://www.npmjs.com/package/monolith-css)
  
-[Install](#install) · [Quick look](#quick-look) · [Naming](#naming) · [Theming](#theming) · [Build](#build) · [Contributing](#contributing)
+[Features](#features) · [Install](#install) · [Quick look](#quick-look) · [Naming](#naming) · [Theming](#theming) · [Build](#build) · [Contributing](#contributing)
  
 ---
  
 </div>
+
+## Features
 
 - **Themable**: colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
 - **Utilities**: generated from Sass maps (spacing, sizing, flex/grid, colors, borders, typography, shadows) with `sm:` … `2xl:` and `hover:` / `focus:` / `active:` variants.
