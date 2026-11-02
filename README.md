@@ -18,11 +18,11 @@
 
 ## Features
 
-- **Themable**: colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
-- **Utilities**: generated from Sass maps (spacing, sizing, flex/grid, colors, borders, typography, shadows) with `sm:` … `2xl:` and `hover:` / `focus:` / `active:` variants.
-- **Components**: buttons, cards, stats, badges, forms, lists, header, bottom navigation, modal, chips, progress, log terminal, alerts and settings rows.
-- **Compat layer**: the class names of the machinima-core stylesheet keep working (can be switched off).
-- **Tiny JS** (optional): modal and theme switcher.
+- **Themable**: Colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
+- **Utilities**: Generated from Sass maps (spacing, sizing, flex/grid, colors, borders, typography, shadows) with `sm:` … `2xl:` and `hover:` / `focus:` / `active:` variants.
+- **Components**: Buttons, cards, stats, badges, forms, lists, header, bottom navigation, modal, chips, progress, log terminal, alerts and settings rows.
+- **Compat layer**: The class names of the machinima-core stylesheet keep working (can be switched off).
+- **Tiny JS** (optional): Modal and theme switcher.
 
 ## Install
 
