@@ -1,5 +1,5 @@
 {
-  "name": "monolith-css",
+  "name": "@morfeditorial/monolith-css",
   "version": "0.1.0",
   "description": "Brutalist CSS framework: themable tokens, atomic utilities and ready-made components in one package.",
   "sass": "scss/main.scss",
@@ -27,6 +27,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/morfeditorial/monolith-css.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "css",
