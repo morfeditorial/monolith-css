@@ -1,7 +1,7 @@
 // =============================================================================
 // COMPAT: machinima-core
 // Utility names already match; this adds the remaining app-shell helpers.
-// Disable with: @use 'monolith-css' with ($enable-compat-machinima: false);
+// Disable with: @use 'pkg:@morfeditorial/monolith-css' with ($enable-compat-machinima: false);
 // =============================================================================
 
 @use '../abstracts/config' as *;

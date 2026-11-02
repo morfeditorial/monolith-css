@@ -4,7 +4,7 @@
  */
 
 // Configuration is forwarded first so that
-//   @use 'monolith-css' with ($enable-dark-mode: false, $theme: (...));
+//   @use 'pkg:@morfeditorial/monolith-css' with ($enable-dark-mode: false, $theme: (...));
 // reaches every module that reads these variables.
 @forward 'abstracts/config';
 @forward 'abstracts/tokens';
