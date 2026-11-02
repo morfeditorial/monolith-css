@@ -6,9 +6,7 @@
  
 *Brutalist CSS framework in one package: themable tokens, atomic utilities and ready-made components.*
  
-[![Latest Stable Version](https://img.shields.io/npm/v/monolith-css.svg?label=npm&logo=npm)](https://www.npmjs.com/package/monolith-css)
-[![Total Downloads](https://img.shields.io/npm/dt/monolith-css.svg?label=Downloads&logo=npm)](https://www.npmjs.com/package/monolith-css)
-[![License](https://img.shields.io/npm/l/monolith-css.svg?label=Licence&logo=open-source-initiative)](https://www.npmjs.com/package/monolith-css)
+[![License: CSSM Unlimited License v2.0](https://img.shields.io/badge/License-CSSM%20Unlimited%20License%20v2.0-blue.svg?logo=opensourceinitiative)](LICENSE)
  
 [Features](#features) · [Install](#install) · [Quick look](#quick-look) · [Naming](#naming) · [Theming](#theming) · [Build](#build) · [Contributing](#contributing)
  
