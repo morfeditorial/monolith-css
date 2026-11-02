@@ -4,7 +4,7 @@
 
 # Monolith CSS
  
-Brutalist CSS framework in one package: **themable tokens**, **atomic utilities** and **ready-made components**.
+*Brutalist CSS framework in one package: themable tokens, atomic utilities and ready-made components.*
  
 [![Latest Stable Version](https://img.shields.io/npm/v/monolith-css.svg?label=npm&logo=npm)](https://www.npmjs.com/package/monolith-css)
 [![Total Downloads](https://img.shields.io/npm/dt/monolith-css.svg?label=Downloads&logo=npm)](https://www.npmjs.com/package/monolith-css)
