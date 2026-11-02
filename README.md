@@ -16,6 +16,8 @@
  
 </div>
 
+Monolith CSS is a brutalist CSS framework that ships themable tokens, atomic utilities and ready-made components in a single package. It is compiled from Sass, works with plain HTML and comes with an optional JavaScript helper for modals and theme switching.
+
 ## Features
 
 - **Themable**: Colors are CSS custom properties (`--primary`, `--surface`, `--border`, …). Dark mode follows the OS or `<html data-theme>`. Telegram Mini App theme parameters are picked up automatically.
