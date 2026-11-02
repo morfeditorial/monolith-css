@@ -21,7 +21,8 @@
     "build:js:min": "esbuild js/index.js --bundle --minify --format=iife --global-name=Monolith --outfile=dist/monolith.min.js",
     "watch": "sass scss/main.scss dist/monolith.css --watch",
     "dev": "npm run watch",
-    "test": "npm run build:css && node test/compat.test.mjs"
+    "test": "npm run build:css && node test/compat.test.mjs",
+    "prepublishOnly": "npm run build && npm run build:min"
   },
   "repository": {
     "type": "git",
