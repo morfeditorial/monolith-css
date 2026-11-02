@@ -27,18 +27,18 @@ Monolith CSS is a brutalist CSS framework that ships themable tokens, atomic uti
 ## Install
 
 ```bash
-npm install monolith-css
+npm install @morfeditorial/monolith-css
 ```
 
 ```html
-<link rel="stylesheet" href="node_modules/monolith-css/dist/monolith.css">
-<script src="node_modules/monolith-css/dist/monolith.js"></script>
+<link rel="stylesheet" href="node_modules/@morfeditorial/monolith-css/dist/monolith.css">
+<script src="node_modules/@morfeditorial/monolith-css/dist/monolith.js"></script>
 ```
 
 Or from Sass:
 
 ```scss
-@use 'pkg:monolith-css' with (
+@use 'pkg:@morfeditorial/monolith-css' with (
   $enable-dark-mode: true,
   $enable-compat-machinima: false
 );
