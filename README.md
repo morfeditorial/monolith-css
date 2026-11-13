@@ -4,7 +4,7 @@
 
 # Monolith CSS
  
-*Brutalist CSS framework in one package: themable tokens, atomic utilities and ready-made components.*
+*Brutalist CSS framework in one package, featuring themable tokens, atomic utilities and ready-made components.*
  
 [![License: CSSM Unlimited License v2.0](https://img.shields.io/badge/License-CSSM%20Unlimited%20License%20v2.0-blue.svg?logo=opensourceinitiative)](LICENSE)
  
